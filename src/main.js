@@ -1,43 +1,31 @@
 const elForm = document.querySelector(".js-form");
 const elInput = elForm.querySelector(".js-input");
 const elItem = document.querySelector(".js-item");
-const elTemplate = document.querySelector(".js-template ").content;
-
 let arr = [];
-
+const handleRenderSecond = (val) => {
+  if (arr.length == 6) elInput.readOnly = true;
+  let elIntervalNumber = document.createElement("strong");
+  elIntervalNumber.className =
+    "p-2 pl-[14px] pr-[14px] bg-blue-400 text-blue-800 rounded-full animation js-number";
+  let int = setInterval(() => {
+    if (val > 1) val--;
+    else {
+      arr.pop();
+      clearInterval(int);
+      elInput.readOnly = false;
+      elIntervalNumber.remove();
+    }
+    elIntervalNumber.textContent = val;
+  }, 1000);
+  elIntervalNumber.textContent = val;
+  elItem.append(elIntervalNumber);
+};
 elForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
-
   let inputValue = elInput.value.trim();
-  let copyClone = elTemplate.cloneNode(true);
-  let elNumber = copyClone.querySelector(".js-number");
-
-  if (inputValue != "" && inputValue > 0) {
-    elNumber.textContent = inputValue;
-    elItem.appendChild(copyClone);
+  if (inputValue.length && Number(inputValue)) {
     arr.push(inputValue);
-  } else {
-    console.log("input son kriting");
+    handleRenderSecond(inputValue);
   }
-
-  if (arr.length == 6) {
-    elInput.disabled = true;
-    jsBtn.disabled = true;
-    console.log("input disebled");
-  } else {
-    elInput.disabled = false;
-    jsBtn.disabled = false;
-  }
-
-  let id = setInterval(() => {
-    inputValue--;
-    if (inputValue == -1) {
-      clearInterval(id);
-      elNumber.remove();
-    } else {
-      elNumber.textContent = inputValue;
-    }
-  }, 1000);
-
   elForm.reset();
 });
