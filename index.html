@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS</title>
+    <link rel="stylesheet" href="./src/output.css" />
+  </head>
+  <body class="bg-blue-600">
+    <div
+      class="m-auto w-96 mt-44 pt-10 pb-10 rounded-xl bg-blue-500 shadow-2xl text-center"
+    >
+      <form class="bg-white mb-4 js-form w-[300px] m-auto rounded-3xl">
+        <input
+          class="p-2 pl-3 rounded-3xl js-input hover:bg-slate-200 transition-all cursor-pointer placeholder:font-medium"
+          type="Number"
+          placeholder="Enter Number..."
+        />
+        <button
+          class="p-2 pl-5 pr-5 rounded-3xl font-semibold bg-white text-zinc-400 hover:text-blue-500 transition-all hover:bg-slate-200 cursor-pointer"
+          id="jsBtn"
+          type="submit"
+        >
+          Click
+        </button>
+      </form>
+
+      <ul
+        class="w-[270px] m-auto text-start list-none flex items-center flex-wrap gap-2 js-item"
+      ></ul>
+    </div>
+
+    <div class="box"></div>
+
+    <template class="js-template">
+      <li class="flex items-center">
+        <strong
+          class="p-2 pl-[14px] pr-[14px] bg-blue-400 text-blue-800 rounded-full animation js-number"
+        ></strong>
+      </li>
+    </template>
+
+    <script src="./src/main.js"></script>
+  </body>
+</html>
