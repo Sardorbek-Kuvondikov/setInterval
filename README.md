@@ -1,2 +1,2 @@
 # 📘 SetInterval
-A brief introduction to setinterval for students
+A brief introduction to setinterval for students.
